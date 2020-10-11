@@ -43,7 +43,6 @@ class ChatMessages extends ActiveRecord
         $hide->save();
     }
 
-
     public function getUser()
     {
             return $this->hasOne(ChatUsers::className(), ['id' => 'user_id']);

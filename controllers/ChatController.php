@@ -97,6 +97,22 @@ class ChatController extends Controller
         }
     }
 
+    public function actionChangerole()
+    {
+        $id = $_POST['id'];
+
+        $username = Yii::$app->session->get('username');
+        $getUser = ChatUsers::findOne(['username' => $username]);
+        $role = $getUser->role;
+        if($role == 2) {
+            $cr = ChatUsers::changeRole($id);
+            return $cr;
+        } else {
+            return 0;
+        }
+
+    }
+
     public function actionLogout()
     {
         return $this->render('/chat');
@@ -114,6 +130,19 @@ class ChatController extends Controller
 
         $data['hidden_messages'] = ChatMessages::find()->joinWith('user')->where(['chat_messages.visible' => 0])->asArray()->all();
         return $this->render('/chat/admin', $data);
+    }
+
+    public function actionUsers()
+    {
+        $username = Yii::$app->session->get('username');
+        $getUser = ChatUsers::findOne(['username' => $username]);
+        $role = $getUser->role;
+        if($role != 2) {
+            die;
+        }
+
+        $data['users'] = ChatUsers::find()->asArray()->all();
+        return $this->render('/chat/users', $data);
     }
 
 

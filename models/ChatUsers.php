@@ -33,4 +33,21 @@ class ChatUsers extends ActiveRecord
         $finduser = ChatUsers::find()->select(['id', 'role', 'username'])->where(['username' => $username])->asArray()->one();
         return $finduser;
     }
+
+    public static function changeRole($id){
+        $user = ChatUsers::findOne($id);
+
+        $currentRole = $user->role;
+        if($currentRole == 1){
+            $user->role = 2;
+        }
+        if($currentRole == 2){
+            $user->role = 1;
+        }
+
+        $user->save();
+
+        return 1;
+    }
+
 }
