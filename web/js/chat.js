@@ -95,6 +95,19 @@ $('.actionReturnMessage').click(function(){
 });
 
 
+$('.actionChangeRole').click(function(){
+    var uid = $(this).attr('uid');
+    
+    $.post("/chat/changerole", {id:uid},
+            function(data, textStatus, jqXHR)
+            {
+                $('body').fadeOut();
+                location.reload()
+            }
+    );
+});
+
+
 
 function loadUser(){
     $.ajax({
