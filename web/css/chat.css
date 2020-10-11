@@ -1,0 +1,56 @@
+body,html{margin:0;padding:0;}
+button,input,body{font-family:'Helvetica';outline:none}
+button{cursor:pointer}
+body{background: #f6f6f6;}
+.left{float:left}
+.right{float:right}
+
+.chatWindow, .loginWindow{display:none}
+
+/* login */
+
+
+.loginWindow{width: 300px; margin: 0 auto; overflow: overlay; padding: 50px; background: #ffffff; box-shadow: 0px 0px 50px #b4b4b4; margin-top: 10vh;}
+
+.loginTitle{font-size: 40px;}
+
+.lwInner{width: 300px; margin: 0 auto; text-align: center;}
+
+.ulNote{margin-top:20px}
+.loginForm{margin-top:30px}
+.loginForm input{width: 100%; height: 50px; border: 1px solid #c4c4c4; margin-bottom: 10px; padding-left: 20px; font-size: 20px;}
+.loginForm button{width: 100%; height: 60px; background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%); border: 0; color: #fff; font-size: 20px; box-shadow: 0px 0px 30px #c2c2c2; margin-top: 20px;}
+
+.loginAsGuest{margin-top:20px}
+
+.loginAsGuest div{margin-bottom:15px;color: #8f8f8f;}
+.loginAsGuest button{background: #fff; border: 1px solid #cfcfcf; padding: 14px 24px;}
+.information .right{cursor:pointer;}
+
+.ulError{display:none;margin-top: 20px; font-size: 15px; background: red; color: #fff; padding: 10px 0px;}
+
+/* chat */
+
+.chatWindow{width: 800px; margin: 0 auto; background: #fff; height: 100%;box-shadow: 0px 0px 50px #b4b4b4;}
+.chatInner{height: 100%;}
+.chatWindow .messages{height: calc(100% - 131px); padding: 5px 33px;}
+.chatWindow .information{width: calc(100% - 66px); height: 60px; background: #000; background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); line-height: 59px; padding: 0px 33px; overflow: overlay;}
+.chatWindow .newMessage{height: 60px;}
+
+.newMessage{    border-top: 1px solid #c0c0c0;}
+.newMessage input{height: 60px; border: 0; font-size: 18px; margin-left: 33px; width: calc(100% - 33px - 150px); float: left;}
+.newMessage button{width: 150px; height: 60px; float: left; background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%); border: 0; color: #fff;    font-size: 17px;}
+
+.admin-login .msg:hover{text-decoration: line-through; color: #e63939;cursor:pointer}
+
+.msg-removed{opacity: 0.2;}
+
+
+/* admin */
+
+.adminInner{width:300px;margin: 0 auto;}
+.admin-item{margin-bottom:50px}
+
+.msg-admin{    background: linear-gradient(90deg, #0095dd 0%, #f1094b 100%, #0095dd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;}
