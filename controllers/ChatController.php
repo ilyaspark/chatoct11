@@ -24,6 +24,8 @@ class ChatController extends Controller
         return $this->render('/chat/chat');
     }
 
+    /* АВТОРИЗАЦИЯ */
+
     public function actionAuth()
     {
         $session = Yii::$app->session;
@@ -44,6 +46,8 @@ class ChatController extends Controller
         }
     }
 
+    /* ПОЛУЧЕНИЕ ИНФОРМАЦИИ ОБ АВТОРИЗИРОВАННОМ ПОЛЬЗОВАТЕЛЕ */
+
     public function actionGetuser()
     {
 
@@ -53,6 +57,8 @@ class ChatController extends Controller
         //print_r($getUser);
         return $json;
     }
+
+    /* ПОЛУЧЕНИЕ СООБЩЕНИЙ ЧАТА */
 
     public function actionGetmessages()
     {
@@ -67,6 +73,8 @@ class ChatController extends Controller
         return $json;
     }
 
+    /* ОТПРАВКА СООБЩЕНИЙ */
+
     public function actionSendmessage()
     {
 
@@ -80,6 +88,8 @@ class ChatController extends Controller
         return $send;
 
     }
+
+    /* СКРЫТИЕ СООБЩЕНИЙ АДМИНИСТРАТОРОМ */
 
     public function actionHidemessage()
     {
@@ -97,6 +107,8 @@ class ChatController extends Controller
         }
     }
 
+    /* ИЗМЕНЕНИЕ РОЛИ ПОЛЬЗОВАТЕЛЕМ АДМИНИСТРАТОРОМ */
+
     public function actionChangerole()
     {
         $id = $_POST['id'];
@@ -113,11 +125,8 @@ class ChatController extends Controller
 
     }
 
-    public function actionLogout()
-    {
-        return $this->render('/chat');
-    }
 
+    /* УПРАВЛЕНИЕ СКРЫТЫМИ СООБЩЕНИЯМИ */
 
     public function actionAdmin()
     {
@@ -131,6 +140,8 @@ class ChatController extends Controller
         $data['hidden_messages'] = ChatMessages::find()->joinWith('user')->where(['chat_messages.visible' => 0])->asArray()->all();
         return $this->render('/chat/admin', $data);
     }
+
+    /* УПРАВЛЕНИЕ ПОЛЬЗОВАТЕЛЯМИ */
 
     public function actionUsers()
     {
